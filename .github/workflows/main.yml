@@ -35,7 +35,7 @@ jobs:
           service_account: cuenta-labo8@admindesis.iam.gserviceaccount.com
 
       - name: utilizacion de comandos kubectl
-        uses: google-github-actions/get-gkecredentials@v3
+        uses: google-github-actions/get-gke-credentials@v3
         with:	
           cluster_name: autopilot-cluster-1
           location: us-central1
