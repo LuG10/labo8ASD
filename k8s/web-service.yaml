@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: web-service
 spec:
-  type: LoadBalancer        
+  type: LoadBalancer #Externo: Pide una IP pública
   selector:
-    app: web
+    app: web #Busca los contenedores con la etiqueta 'app: web'
   ports:
-    - port: 80         
-      targetPort: 5000  
+    - protocol: TCP
+      port: 80      #Puerto público (El que escribes en el navegador)
+      targetPort: 5000 #Puerto interno del contenedor (El que usa Flask)
