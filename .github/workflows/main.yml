@@ -19,3 +19,30 @@ jobs:
         with:
           username: ${{vars.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}   
+
+      - name: Construir y Subir la imagen Docker
+        uses: docker/build-push-action@v6
+        with:
+          context: ./app
+          push: true
+          tags: lg10/as-laboratorio-8-web # Imagen final
+
+      - name: autentificarse en Google Clouds
+        uses: google-github-actions/auth@v3
+        with:
+          proyect_id: admindesis
+          workload_identity_provider: https://iam.googleapis.com/projects/691003069041/locations/global/workloadIdentityPools/labo8/providers/github-actions-provider
+          service_account: cuenta-labo8@admindesis.iam.gserviceaccount.com
+
+      - name: utilizacion de comandos kubectl
+        uses: google-github-actions/get-gkecredentials@v3
+        with:	
+          cluster_name: autopilot-cluster-1
+          location: us-central1
+
+      - name: despliegue
+        run: kubectl apply -f k8s/
+    
+
+          
+          
