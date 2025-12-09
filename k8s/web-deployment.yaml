@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: web-deployment
+  labels:
+    app: web
 spec:
   replicas: 1
   selector:
@@ -13,12 +15,12 @@ spec:
         app: web
     spec:
       containers:
-        - name: web
-          image: lg10/as-laboratorio-8-web:latest   
-          ports:
-            - containerPort: 5000
-          env:
-            - name: FLASK_APP
-              value: "app.py"
-            - name: FLASK_RUN_HOST
-              value: "0.0.0.0"
+      - name: web
+        image: iratxurrutia/as-laboratorio-8-web:latest
+        env:
+        - name: FLASK_APP
+          value: app.py
+        - name: FLASK_RUN_HOST
+          value: 0.0.0.0
+        ports:
+        - containerPort: 5000 #Flask escucha en el puerto 5000 (desde mi Dockerfile)
