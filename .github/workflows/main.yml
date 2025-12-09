@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
        id-token: write
-       contents: read 
-	   
+       contents: read    
     steps:
       - name: Descargar código
         uses: actions/checkout@v5
@@ -20,4 +19,3 @@ jobs:
         with:
           username: ${{var.USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}   
-		
