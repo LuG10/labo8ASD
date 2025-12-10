@@ -8,8 +8,7 @@ jobs:
   prueba:
     runs-on: ubuntu-latest
     permissions:
-       id-token: write
-       contents: read    
+      security-events: write 
     steps:
       - name: Descargar código
         uses: actions/checkout@v5
