@@ -37,7 +37,7 @@ jobs:
       - name: utilizacion de comandos kubectl
         uses: google-github-actions/get-gke-credentials@v3
         with:	
-          cluster_name: autopilot-cluster-1
+          cluster_name: labo8
           location: us-central1
 
       - name: despliegue
