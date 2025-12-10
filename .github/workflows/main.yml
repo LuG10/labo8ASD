@@ -31,7 +31,7 @@ jobs:
         uses: google-github-actions/auth@v3
         with:
           proyect_id: admindesis
-          workload_identity_provider: projects/691003069041/locations/global/workloadIdentityPools/labo8/providers/github-actions-provider
+          workload_identity_provider: projects/691003069041/locations/global/workloadIdentityPools/grupo-labo8/subject/SUBJECT_ATTRIBUTE_VALUE 
           service_account: cuenta-labo8@admindesis.iam.gserviceaccount.com
 
       - name: utilizacion de comandos kubectl
